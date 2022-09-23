@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">HomeRent</string>
+    <string name="title_activity_onboard_compose">OnboardComposeActivity</string>
+    <string name="welcome_screen_title">Pay House Rent\nOnline</string>
+    <string name="welcome_screen_subtitle">Lowest Charges. Instant Transfers.</string>
+    <string name="welcome_screen_button_text">Get Started</string>
+    <string name="welcome_screen_subtitle2">Trusted by 1 million customers</string>
+    <string name="phone_screen_title">HomeRent</string>
+    <string name="phone_screen_text">Login to continue</string>
+    <string name="phone_screen_tenant">Tenant</string>
+    <string name="phone_screen_landlord">Landlord </string>
+    <string name="phone_screen_phone_input_title">Username</string>
+    <string name="phone_screen_button_text">Don\'t have an account ? Signup</string>
+    <string name="password_screen_subtitle">We have sent OTP on your register \nmobile Number</string>
+    <string name="password_screen_timer"> Sec Left</string>
+    <string name="password_screen_input_title" translatable="false">Password</string>
+    <string name="password_screen_secondary_button_text">Don\'t receive OTP? Resend again</string>
+    <string name="password_screen_primary_button_text">Sign In</string>
+    <string name="register_screen_phone_input_placeholder">Username</string>
+    <string name="register_screen_password_input_placeholder">Password</string>
+    <string name="register_screen_password_button_text">Sign Up</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="home_screen_section_1">Categories</string>
+    <string name="home_screen_section_2">Popular Homes</string>
+
+</resources>
