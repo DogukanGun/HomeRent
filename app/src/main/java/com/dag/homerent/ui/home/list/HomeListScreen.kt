@@ -1,4 +1,4 @@
-package com.dag.homerent.ui.homelist
+package com.dag.homerent.ui.home.list
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -11,7 +11,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Message
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dag.homerent.R
 import com.dag.homerent.composebase.HomeRentPreview
-import com.dag.homerent.ui.home.activity.HomeSurface
+import com.dag.homerent.ui.home.HomeSurface
 import com.dag.homerent.ui.theme.HomeListRowButtonColor
 import com.dag.homerent.ui.theme.HomeListRowColor
 import com.dag.homerent.ui.theme.MainActivityBackground

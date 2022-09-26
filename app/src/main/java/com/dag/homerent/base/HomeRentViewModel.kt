@@ -57,10 +57,10 @@ abstract class HomeRentViewModel:ViewModel() {
         .subscribe()
 
     protected fun <T> Flow<BaseResult<T>>.subscribeNotNull(
-        errorHandler: ErrorHandler,
+        errorHandler: ErrorHandler = DefaultErrorHandler(),
         onSuccess: (T) -> Unit
-    ) = subscribe(errorHandler) {
-        if (it != null) {
+    ) = subscribe(errorHandler) { result ->
+        result?.let {
             onSuccess.invoke(it)
         }
     }

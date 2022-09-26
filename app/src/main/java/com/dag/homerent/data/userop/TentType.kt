@@ -1,4 +1,4 @@
-package com.dag.homerent.data
+package com.dag.homerent.data.userop
 
 enum class TentType(val id:Int) {
     Tenant(1),

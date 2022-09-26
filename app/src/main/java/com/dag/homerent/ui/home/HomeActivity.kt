@@ -1,8 +1,7 @@
-package com.dag.homerent.ui.home.activity
+package com.dag.homerent.ui.home
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -12,7 +11,6 @@ import com.dag.homerent.base.HomeRentActivity
 import com.dag.homerent.composebase.navcontroller.NavGraph
 import com.dag.homerent.composebase.navcontroller.NavScreen
 import com.dag.homerent.databinding.HomepageActivityBinding
-import com.dag.homerent.ui.theme.Background
 import com.dag.homerent.ui.theme.HomeRentTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

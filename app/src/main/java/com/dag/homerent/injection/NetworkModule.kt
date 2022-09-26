@@ -2,11 +2,7 @@ package com.dag.homerent.injection
 
 import android.app.Application
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.dag.homerent.network.interceptors.NetworkConnectionInterceptor
-import com.dag.homerent.base.BaseDialogBoxUtil
-import com.dag.homerent.base.HomeRentActivityListener
-import com.dag.homerent.base.HomeRentApplication
-import com.dag.homerent.base.HomerentNavigator
+import com.dag.homerent.base.*
 import com.dag.homerent.network.BaseNetworkLogger
 import com.dag.homerent.network.DialogBoxInterceptor
 import com.dag.homerent.network.HomerentService
@@ -19,19 +15,26 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Cache
-import okhttp3.Call
-import okhttp3.OkHttpClient
-import okhttp3.Request
+import okhttp3.*
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
+    const val AUTHENTICATED = "authenticated"
+    const val UNAUTHENTICATED = "unauthenticated"
+
+    const val AUTHENTICATED_RETROFIT = "authenticated_retrofit"
+    const val UNAUTHENTICATED_RETROFIT = "unauthenticated_retrofit"
+
+    const val AUTHENTICATED_SERVICE = "authenticated_service"
+    const val UNAUTHENTICATED_SERVICE = "unauthenticated_service"
 
     @Provides
     @Singleton
@@ -45,20 +48,65 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideBaseOkHttpClient(
-        cache:Cache,
+    fun provideHeaderManager(): HeaderManager = HeaderManager()
+
+    @Provides
+    @Singleton
+    fun provideHeaderInterceptor(
+        headerManager: HeaderManager
+    ) = Interceptor { chain ->
+        val request = chain.request()
+
+        val requestBuilder = request.newBuilder()
+        headerManager.headers.forEach {
+            requestBuilder.removeHeader(it.key)
+            requestBuilder.addHeader(it.key, it.value)
+        }
+        val updatedRequest = requestBuilder
+            .method(request.method, request.body)
+            .build()
+        return@Interceptor chain.proceed(updatedRequest)
+    }
+
+    @Provides
+    @Singleton
+    fun provideBaseOkHttpClientBuilder(
+        cache: Cache,
         chuckerInterceptor: ChuckerInterceptor,
         baseNetworkLogger: BaseNetworkLogger,
         dialogBoxInterceptor: DialogBoxInterceptor,
-    ):OkHttpClient{
+    ): OkHttpClient.Builder {
         return OkHttpClient.Builder()
             .cache(cache)
             .addNetworkInterceptor(baseNetworkLogger)
             .addInterceptor(dialogBoxInterceptor)
             .addInterceptor(chuckerInterceptor)
-            .connectTimeout(60000L,TimeUnit.MILLISECONDS)
-            .readTimeout(60000L,TimeUnit.MILLISECONDS)
-            .writeTimeout(60000L,TimeUnit.MILLISECONDS)
+            .connectTimeout(60000L, TimeUnit.MILLISECONDS)
+            .readTimeout(60000L, TimeUnit.MILLISECONDS)
+            .writeTimeout(60000L, TimeUnit.MILLISECONDS)
+    }
+
+    @Provides
+    @Named(AUTHENTICATED)
+    @Singleton
+    fun provideBaseOkHttpClientAuthenticated(
+        okHttpClientBuilder: OkHttpClient.Builder,
+        headerInterceptor: Interceptor
+    ): OkHttpClient {
+        return okHttpClientBuilder
+            .addInterceptor(headerInterceptor)
+            .build()
+    }
+
+    @Provides
+    @Named(UNAUTHENTICATED)
+    @Singleton
+    fun provideBaseOkHttpClientUnauthenticated(
+        okHttpClientBuilder: OkHttpClient.Builder,
+        headerInterceptor: Interceptor
+    ): OkHttpClient {
+        return okHttpClientBuilder
+            .addInterceptor(headerInterceptor)
             .build()
     }
 
@@ -68,18 +116,43 @@ object NetworkModule {
     fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
+    @Named(AUTHENTICATED_SERVICE)
     @Singleton
-    fun provideHomerentService(
-        retrofit: Retrofit
+    fun provideHomerentServiceAuthenticated(
+        @Named(AUTHENTICATED_RETROFIT) retrofit: Retrofit
     ): HomerentService = retrofit.create(HomerentService::class.java)
 
 
     @Provides
+    @Named(UNAUTHENTICATED_SERVICE)
     @Singleton
-    fun provideRetrofit(
-        baseOkHttpClient:Lazy<OkHttpClient>,
+    fun provideHomerentServiceUnauthenticated(
+        @Named(UNAUTHENTICATED_RETROFIT) retrofit: Retrofit
+    ): HomerentService = retrofit.create(HomerentService::class.java)
+
+    @Provides
+    @Named(UNAUTHENTICATED_RETROFIT)
+    @Singleton
+    fun provideRetrofitUnauthenticated(
+        @Named(UNAUTHENTICATED) baseOkHttpClient: Lazy<OkHttpClient>,
         gson: Gson
-    ):Retrofit{
+    ): Retrofit {
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(DialogBoxFailureConverter())
+            .addCallAdapterFactory(NetworkResponseAdapterFactory())
+            .baseUrl(HomeRentApplication.baseUrl)
+            .callFactoryDelegate(baseOkHttpClient)
+            .build()
+    }
+
+    @Provides
+    @Named(AUTHENTICATED_RETROFIT)
+    @Singleton
+    fun provideRetrofitAuthenticated(
+        @Named(AUTHENTICATED) baseOkHttpClient: Lazy<OkHttpClient>,
+        gson: Gson
+    ): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addConverterFactory(DialogBoxFailureConverter())
@@ -100,7 +173,7 @@ object NetworkModule {
     @Singleton
     fun provideBaseDialogBoxUtil(
         navigator: HomerentNavigator,
-        service: HomerentService,
+        @Named(AUTHENTICATED_SERVICE) service: HomerentService,
         cleanActivityListener: HomeRentActivityListener
     ) = BaseDialogBoxUtil(navigator,service,cleanActivityListener)
 

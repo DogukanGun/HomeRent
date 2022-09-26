@@ -4,7 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
-import com.dag.homerent.ui.home.activity.HomeActivity
+import com.dag.homerent.ui.home.HomeActivity
 import javax.inject.Inject
 
 class HomeRentActivityListener @Inject constructor() : Application.ActivityLifecycleCallbacks  {

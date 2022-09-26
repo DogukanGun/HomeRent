@@ -1,14 +1,19 @@
 package com.dag.homerent.composebase.bottomnavigation
 
 
+import android.content.Intent
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -16,8 +21,9 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.dag.homerent.composebase.navcontroller.NavScreen
-import com.dag.homerent.ui.theme.BackgroundColorVariant
-import com.dag.homerent.ui.theme.ButtonColor
+import com.dag.homerent.ui.home.add.ui.AddHomeActivity
+import com.dag.homerent.ui.onboard.findActivity
+import com.dag.homerent.ui.theme.HomeListRowButtonColor
 import com.dag.homerent.ui.theme.UnSelectedBottomItem
 
 
@@ -26,27 +32,31 @@ fun CustomBottomNavigation(
     currentRoute: String,
     navController:NavHostController
 ) {
-    Box{
+    var context = LocalContext.current
+    Box(
+    ) {
         BottomNavigation(
             modifier = Modifier
-                .height(40.dp),
-            backgroundColor = BackgroundColorVariant
+                .height(40.dp)
+                .align(Alignment.BottomCenter),
+            backgroundColor = Color.White
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
+                Spacer(modifier = Modifier.size(50.dp))
                 BarItem.values().forEach {
                     BottomNavigationItem(
                         selected = currentRoute == it.route,
                         unselectedContentColor = UnSelectedBottomItem,
-                        selectedContentColor = Color.White,
+                        selectedContentColor = HomeListRowButtonColor,
                         onClick = {
-                            if (currentRoute == it.route){
+                            if (currentRoute == it.route) {
                                 return@BottomNavigationItem
-                            }else{
-                                navController.navigate(it.route){
+                            } else {
+                                navController.navigate(it.route) {
                                     NavScreen.HomeScreen.route.let {
-                                        popUpTo(navController.graph.findStartDestination().id){
+                                        popUpTo(navController.graph.findStartDestination().id) {
                                             saveState = true
                                         }
                                     }
@@ -65,7 +75,31 @@ fun CustomBottomNavigation(
                         }
                     )
                 }
+                Spacer(modifier = Modifier.size(60.dp))
             }
+        }
+        FloatingActionButton(
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(bottom = 20.dp),
+            backgroundColor = HomeListRowButtonColor,
+            onClick = {
+                val activity = context.findActivity()
+                activity?.apply {
+                    startActivity(
+                        Intent(
+                            this,
+                            AddHomeActivity::class.java
+                        )
+                    )
+                }
+            }
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Add,
+                contentDescription = "",
+                tint = Color.White
+            )
         }
     }
 }

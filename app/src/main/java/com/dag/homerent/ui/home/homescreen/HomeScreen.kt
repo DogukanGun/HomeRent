@@ -1,9 +1,8 @@
-package com.dag.homerent.ui.home.screens
+package com.dag.homerent.ui.home.homescreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,7 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dag.homerent.R
 import com.dag.homerent.composebase.HomeRentPreview
-import com.dag.homerent.ui.home.activity.HomeSurface
+import com.dag.homerent.ui.home.HomeSurface
 import com.dag.homerent.ui.theme.HomeFilterButtonBackground
 import com.dag.homerent.ui.theme.HomeFilterButtonImageColor
 import com.dag.homerent.ui.theme.MainActivityBackground

@@ -14,19 +14,18 @@ import androidx.navigation.navArgument
 import com.dag.homerent.composebase.HomeRentSurface
 import com.dag.homerent.composebase.appbar.CustomAppbar
 import com.dag.homerent.composebase.bottomnavigation.CustomBottomNavigation
-import com.dag.homerent.ui.home.activity.HomeActivity
-import com.dag.homerent.ui.home.screens.HomeScreen
-import com.dag.homerent.ui.home.screens.HomeScreenVM
-import com.dag.homerent.ui.homelist.HomeListScreen
-import com.dag.homerent.ui.onboard.OnboardVM
-import com.dag.homerent.ui.onboard.register.ui.password.PasswordScreen
-import com.dag.homerent.ui.onboard.register.ui.phone.PhoneScreen
+import com.dag.homerent.ui.home.HomeActivity
+import com.dag.homerent.ui.home.homescreen.HomeScreen
+import com.dag.homerent.ui.home.homescreen.HomeScreenVM
+import com.dag.homerent.ui.home.list.HomeListScreen
 import com.dag.homerent.ui.onboard.WelcomeScreen
-import com.dag.homerent.ui.onboard.register.ui.password.PasswordVM
-import com.dag.homerent.ui.onboard.register.ui.phone.PhoneVM
 import com.dag.homerent.ui.onboard.login.ui.LoginUser
 import com.dag.homerent.ui.onboard.login.ui.LoginVM
 import com.dag.homerent.ui.onboard.register.data.dto.UserRegisterFirstStepInfo
+import com.dag.homerent.ui.onboard.register.ui.password.PasswordScreen
+import com.dag.homerent.ui.onboard.register.ui.password.PasswordVM
+import com.dag.homerent.ui.onboard.register.ui.phone.PhoneScreen
+import com.dag.homerent.ui.onboard.register.ui.phone.PhoneVM
 
 @Composable
 fun NavGraph(

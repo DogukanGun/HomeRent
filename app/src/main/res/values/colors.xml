@@ -12,8 +12,13 @@
     <color name="red">#FF0000</color>
     <color name="green">#00FF00</color>
     <color name="purple">#6a0dad</color>
-    <color name="orange">#FFA500</color>
+    <color name="orange">#FA6909</color>
+    <color name="violett">#664D88</color>
 
     <color name="bottom_bar">#FF000000</color>
+    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_600">#FF757575</color>
 
 </resources>

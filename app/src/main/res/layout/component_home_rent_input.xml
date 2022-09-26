@@ -1,0 +1,31 @@
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/padding_small"
+        android:paddingStart="@dimen/padding_small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titleTV"
+            style="@style/HomeRentTitle.Black.Large.Bold"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Rent Per month" />
+
+        <EditText
+            android:id="@+id/textET"
+            style="@style/HomeRentTitle.White.XLarge"
+            android:textColorHint="@color/white"
+            android:padding="@dimen/padding_medium"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_violett_homerent_input"
+            android:layout_height="wrap_content"
+            tools:hint="$8500" />
+
+    </LinearLayout>
+
+</layout>

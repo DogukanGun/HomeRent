@@ -1,0 +1,112 @@
+<resources>
+
+    <!-- Text Style -->
+    <style name="Widget.Theme.HomeRent.MyView" parent="">
+        <item name="android:background">@color/gray_400</item>
+    </style>
+
+    <style name="HomeRentTitle" parent="Widget.AppCompat.TextView" />
+
+    <style name="HomeRentTitle.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="HomeRentTitle.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="HomeRentTitle.White.Small">
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="HomeRentTitle.White.Small.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeRentTitle.White.Standard">
+        <item name="android:textSize">@dimen/font_size_standard</item>
+    </style>
+
+    <style name="HomeRentTitle.White.Standard.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeRentTitle.White.Large">
+        <item name="android:textSize">@dimen/font_size_large</item>
+    </style>
+
+    <style name="HomeRentTitle.White.Large.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeRentTitle.White.XLarge">
+        <item name="android:textSize">@dimen/font_size_x_large</item>
+    </style>
+
+    <style name="HomeRentTitle.White.XLarge.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeRentTitle.White.XXLarge">
+        <item name="android:textSize">@dimen/font_size_xx_large</item>
+    </style>
+
+    <style name="HomeRentTitle.White.XXLarge.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.Small">
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.Small.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.Standard">
+        <item name="android:textSize">@dimen/font_size_standard</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.Standard.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.Large">
+        <item name="android:textSize">@dimen/font_size_large</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.Large.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.XLarge">
+        <item name="android:textSize">@dimen/font_size_x_large</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.XLarge.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.XXLarge">
+        <item name="android:textSize">@dimen/font_size_xx_large</item>
+    </style>
+
+    <style name="HomeRentTitle.Black.XXLarge.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Switch Compat -->
+    <style name="CheckableThumbColor" parent="Theme.AppCompat">
+        <item name="colorControlActivated">@color/violett</item>
+        <item name="colorSwitchThumbNormal">@color/violett</item>
+        <item name="android:colorForeground">@color/gray_600</item>
+    </style>
+
+    <style name="StandartButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/dialog_box_button_background_orange</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/padding_small</item>
+    </style>
+</resources>

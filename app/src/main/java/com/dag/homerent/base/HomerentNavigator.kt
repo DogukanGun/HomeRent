@@ -3,7 +3,7 @@ package com.dag.homerent.base
 import android.content.Intent
 import com.dag.homerent.R
 import com.dag.homerent.dailogbox.KeyValueModel
-import com.dag.homerent.ui.home.activity.HomeActivity
+import com.dag.homerent.ui.home.HomeActivity
 import javax.inject.Inject
 
 class HomerentNavigator @Inject constructor(private val activityListener: HomeRentActivityListener) {
@@ -40,7 +40,7 @@ class HomerentNavigator @Inject constructor(private val activityListener: HomeRe
 }
 
 enum class DeepLinkActivityType(val functionCode:Int,val functionName:String,val clazz: Class<*>){
-    MAIN_ACTIVITY(11000,"Main",HomeActivity::class.java);
+    MAIN_ACTIVITY(11000, "Main", HomeActivity::class.java);
     companion object {
         fun findActivity(searchKey:Any) = values().firstOrNull {
             if (searchKey is Int?) it.functionCode == searchKey else if (searchKey is String?) it.functionName == searchKey else false

@@ -3,7 +3,7 @@ package com.dag.homerent.ui.onboard.register.ui.phone
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import com.dag.homerent.base.HomeRentViewModel
-import com.dag.homerent.data.TentType
+import com.dag.homerent.data.userop.TentType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -1,0 +1,32 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_small"
+        android:paddingEnd="@dimen/margin_small"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/waterBillTV"
+            style="@style/HomeRentTitle.Black.Standard.Bold"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:layout_weight="1"
+            tools:text="Water Bill" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/waterBillValueSC"
+            style="@style/CheckableThumbColor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="@+id/waterBillTV"
+            app:layout_constraintEnd_toEndOf="@+id/rentHRI"
+            app:layout_constraintTop_toTopOf="@+id/waterBillTV" />
+
+    </LinearLayout>
+
+</layout>

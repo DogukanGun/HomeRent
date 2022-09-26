@@ -1,11 +1,11 @@
 package com.dag.homerent.base
 
 import android.os.Bundle
-import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
+import com.dag.homerent.BR
 
 abstract class HomeRentActivity<VM : HomeRentViewModel, VB : ViewDataBinding> :
     AppCompatActivity(),
@@ -20,11 +20,12 @@ abstract class HomeRentActivity<VM : HomeRentViewModel, VB : ViewDataBinding> :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getLayout()?.let {
-            binding = DataBindingUtil.inflate(layoutInflater,it, null, false)
-        }
         viewModel = getHomeViewModel()
-        if(!viewModel.viewState.hasActiveObservers()){
+        getLayout()?.let {
+            binding = DataBindingUtil.setContentView(this, it)
+            binding.setVariable(BR.viewModel, viewModel)
+        }
+        if (!viewModel.viewState.hasActiveObservers()) {
             viewModel.viewState.observe(this, Observer {
                 handleState(it)
             })

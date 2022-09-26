@@ -4,6 +4,8 @@
     <dimen name="margin_small">16dp</dimen>
     <dimen name="margin_medium">32dp</dimen>
     <dimen name="margin_large">64dp</dimen>
+    <dimen name="margin_xlarge">128dp</dimen>
+
 
     <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_medium">16dp</dimen>
@@ -15,5 +17,11 @@
     <dimen name="text_xlarge">32sp</dimen>
 
     <dimen name="button_corner_radius">100dp</dimen>
+
+    <dimen name="font_size_small">12sp</dimen>
+    <dimen name="font_size_standard">14sp</dimen>
+    <dimen name="font_size_large">16sp</dimen>
+    <dimen name="font_size_x_large">18sp</dimen>
+    <dimen name="font_size_xx_large">32sp</dimen>
 
 </resources>

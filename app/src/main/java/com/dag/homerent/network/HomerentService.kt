@@ -1,7 +1,6 @@
 package com.dag.homerent.network
 
-import com.dag.homerent.data.LoginResult
-import com.dag.homerent.data.UserLogin
+import com.dag.homerent.network.commonresponse.ActivityBodyResponse
 import com.dag.homerent.ui.onboard.login.data.request.LoginRequest
 import com.dag.homerent.ui.onboard.login.data.response.LoginResponse
 import com.dag.homerent.ui.onboard.register.data.request.RegisterUserModel
@@ -19,7 +18,7 @@ interface HomerentService {
     fun genericPutRequest(@Url url: String?, @Body body:Any? = {}):BaseResult<BaseResponse?>
 
     @DELETE
-    fun genericDeleteRequest(@Url url: String?):BaseResult<BaseResponse>
+    fun genericDeleteRequest(@Url url: String?): BaseResult<BaseResponse>
 
     @POST("auth/register/{userType}")
     suspend fun register(
@@ -29,4 +28,8 @@ interface HomerentService {
 
     @POST("auth/login")
     suspend fun login(@Body loginRequest: LoginRequest): BaseResult<ApiResponse<LoginResponse>>
+
+
+    @GET("formcontent/name/{name}")
+    suspend fun getActivityBody(@Path("name") name: String): BaseResult<ApiResponse<ActivityBodyResponse>>
 }

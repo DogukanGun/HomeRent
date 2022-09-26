@@ -1,4 +1,4 @@
-package com.dag.homerent.ui.home.screens
+package com.dag.homerent.ui.home.homescreen
 
 import com.dag.homerent.base.HomeRentViewModel
 import javax.inject.Inject

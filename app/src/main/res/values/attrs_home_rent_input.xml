@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HomeRentInput">
+        <attr name="inputTitle" format="integer" />
+        <attr name="inputType">
+            <flag name="phone" value="0x00000003" />
+            <flag name="number" value="0x00000002" />
+            <flag name="text" value="0x00000000" />
+            <flag name="password" value="0x00000080" />
+            <flag name="numberPassword" value="0x00000010" />
+            <flag name="email" value="0x00000020" />
+        </attr>
+    </declare-styleable>
+</resources>

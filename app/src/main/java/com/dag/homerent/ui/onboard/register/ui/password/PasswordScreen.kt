@@ -1,10 +1,17 @@
 package com.dag.homerent.ui.onboard.register.ui.password
 
 import android.content.Intent
-import androidx.compose.foundation.*
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -14,24 +21,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dag.homerent.R
 import com.dag.homerent.composebase.HomeRentPreview
-import com.dag.homerent.composebase.navcontroller.NavScreen
-import com.dag.homerent.composebase.navcontroller.navigateAndReplaceStartRoute
-import com.dag.homerent.ui.onboard.register.data.request.RegisterUserModel
-import com.dag.homerent.ui.home.activity.HomeActivity
+import com.dag.homerent.ui.home.HomeActivity
 import com.dag.homerent.ui.onboard.OnboardSurface
 import com.dag.homerent.ui.onboard.OnboardTitle
-import com.dag.homerent.ui.onboard.OnboardVM
 import com.dag.homerent.ui.onboard.findActivity
 import com.dag.homerent.ui.onboard.register.data.dto.UserRegisterFirstStepInfo
-import com.dag.homerent.ui.onboard.register.ui.phone.NumberInput
+import com.dag.homerent.ui.onboard.register.data.request.RegisterUserModel
 import com.dag.homerent.ui.onboard.register.ui.phone.InputWrapper
+import com.dag.homerent.ui.onboard.register.ui.phone.NumberInput
 
 
 @Composable
@@ -43,7 +45,7 @@ fun PasswordScreen(
     var password by remember { mutableStateOf("") }
     if (state.success.value){
         val activity = LocalContext.current.findActivity()
-        activity?.startActivity(Intent(activity,HomeActivity::class.java))
+        activity?.startActivity(Intent(activity, HomeActivity::class.java))
         activity?.finish()
     }
     OnboardSurface {

@@ -6,8 +6,11 @@ import com.dag.homerent.R
 import com.dag.homerent.base.HomeRentViewState
 import com.dag.homerent.base.HomerentSessionUtil
 import com.dag.homerent.base.ext.openActivity
-import com.dag.homerent.dailogbox.*
-import com.dag.homerent.ui.home.activity.HomeActivity
+import com.dag.homerent.dailogbox.DefaultModelDialog
+import com.dag.homerent.dailogbox.ModelDialog
+import com.dag.homerent.dailogbox.ModelDialogButton
+import com.dag.homerent.dailogbox.ModelDialogHandler
+import com.dag.homerent.ui.home.HomeActivity
 import javax.inject.Inject
 
 object SessionTimeoutViewEffect: HomeRentViewState
@@ -30,7 +33,7 @@ class SessionTimeoutHandler @Inject constructor(
                 onClick = {
                     HomerentSessionUtil.endSession()
                     activity.openActivity(
-                        Intent(activity,HomeActivity::class.java)
+                        Intent(activity, HomeActivity::class.java)
                     )
                 }
             ),

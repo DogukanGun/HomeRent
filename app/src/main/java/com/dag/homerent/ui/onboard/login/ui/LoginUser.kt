@@ -21,14 +21,9 @@ import androidx.navigation.compose.rememberNavController
 import com.dag.homerent.R
 import com.dag.homerent.composebase.HomeRentPreview
 import com.dag.homerent.composebase.button.CustomButton
-import com.dag.homerent.composebase.navcontroller.NavScreen
-import com.dag.homerent.composebase.navcontroller.navigateAndReplaceStartRoute
-import com.dag.homerent.data.LoginResult
-import com.dag.homerent.data.UserLogin
-import com.dag.homerent.ui.home.activity.HomeActivity
+import com.dag.homerent.ui.home.HomeActivity
 import com.dag.homerent.ui.onboard.OnboardSurface
 import com.dag.homerent.ui.onboard.OnboardTitle
-import com.dag.homerent.ui.onboard.OnboardVM
 import com.dag.homerent.ui.onboard.findActivity
 import com.dag.homerent.ui.onboard.login.data.request.LoginRequest
 import com.dag.homerent.ui.onboard.register.ui.phone.NumberInput
@@ -44,7 +39,7 @@ fun LoginUser(
 
     if (state.success.value){
         val activity = LocalContext.current.findActivity()
-        activity?.startActivity(Intent(activity,HomeActivity::class.java))
+        activity?.startActivity(Intent(activity, HomeActivity::class.java))
         activity?.finish()
     }
 

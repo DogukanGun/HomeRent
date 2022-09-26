@@ -1,16 +1,14 @@
 package com.dag.homerent.base
 
-import javax.inject.Inject
 import android.app.Activity
 import android.app.AlertDialog
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.capitalize
 import androidx.core.content.ContextCompat
 import com.dag.homerent.R
 import com.dag.homerent.base.ext.tryCatch
 import com.dag.homerent.dailogbox.*
+import com.dag.homerent.injection.NetworkModule
 import com.dag.homerent.network.BaseResult
 import com.dag.homerent.network.HomerentService
 import com.google.gson.JsonParser
@@ -19,10 +17,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
+import javax.inject.Named
 
 class BaseDialogBoxUtil @Inject constructor(
     private val clNavigator: HomerentNavigator,
-    private val service: HomerentService,
+    @Named(NetworkModule.AUTHENTICATED_SERVICE) private val service: HomerentService,
     private val homeRentActivityListener: HomeRentActivityListener
 ){
     var baseDialogBoxCustomActionListener:BaseDialogBoxCustomActionListener? = null
