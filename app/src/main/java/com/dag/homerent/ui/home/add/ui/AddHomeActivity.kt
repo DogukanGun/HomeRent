@@ -3,15 +3,13 @@ package com.dag.homerent.ui.home.add.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.Toast
 import com.dag.homerent.R
 import com.dag.homerent.base.HomeRentActivity
 import com.dag.homerent.base.HomeRentViewState
-import com.dag.homerent.base.adapter.ItemClickListener
-import com.dag.homerent.base.adapter.basicAdapter
 import com.dag.homerent.component.homerentinput.HomeRentInput
 import com.dag.homerent.component.homerentswitch.HomeRentSwitch
+import com.dag.homerent.component.verticalrow.VerticalRow
 import com.dag.homerent.component.verticalrow.VerticalRowItem
 import com.dag.homerent.data.common.ContentPages
 import com.dag.homerent.data.common.TextFieldType
@@ -93,40 +91,19 @@ class AddHomeActivity : HomeRentActivity<AddHomeVM, ActivityAddhomeBinding>() {
                     binding.textFieldWrapperLL.addView(textFieldComponent)
                 }
                 TextFieldType.List -> {
-                    val recyclerView = RecyclerView(this)
-                    val recyclerViewClickListener =
-                        ItemClickListener<VerticalRowItem> { position, item ->
-                            handleTextViewListListener(item, textField.key)
-                        }
-                    val recyclerViewAdapter = basicAdapter {
-                        itemClickListener = recyclerViewClickListener
-                        itemLayoutId = R.layout.item_vertical_row
-                        list = convertStringToList(textField.hint).toMutableList()
+                    val verticalRow = VerticalRow(this)
+                    verticalRow.setRecyclerViewAdapter(textField) { item, key ->
+                        handleTextViewListListener(item, key)
                     }
-                    recyclerView.adapter = recyclerViewAdapter
-                    recyclerView.layoutManager = LinearLayoutManager(
-                        this,
-                        LinearLayoutManager.HORIZONTAL,
-                        false
-                    )
-                    val layoutParams = RecyclerView.LayoutParams(
-                        RecyclerView.LayoutParams.MATCH_PARENT,
-                        RecyclerView.LayoutParams.WRAP_CONTENT
-                    )
-                    recyclerView.layoutParams = layoutParams
-                    binding.textFieldWrapperLL.addView(recyclerView)
+                    binding.textFieldWrapperLL.addView(verticalRow)
                 }
             }
         }
     }
 
-    private fun convertStringToList(listStr: String): List<VerticalRowItem> {
-        var newList = listStr.replace("[", "")
-        newList = newList.replace("]", "")
-        return newList.split(",").map { VerticalRowItem(it) }
-    }
+
 
     private fun handleTextViewListListener(item: VerticalRowItem, key: String) {
-
+        Toast.makeText(this, "Item is clicked:$item", Toast.LENGTH_LONG).show()
     }
 }

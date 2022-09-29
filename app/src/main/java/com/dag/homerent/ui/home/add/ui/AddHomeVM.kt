@@ -22,7 +22,7 @@ class AddHomeVM @Inject constructor(
     }
 
     fun getActivityBody(contentPage: ContentPages) {
-        if (step == 2) {
+        if (step == ContentPages.values().size) {
             buttonText.set(
                 resourceManager.getString(R.string.activity_addhome_nextbutton_state2)
             )

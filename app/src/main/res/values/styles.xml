@@ -109,4 +109,10 @@
         <item name="android:gravity">center</item>
         <item name="android:padding">@dimen/padding_small</item>
     </style>
+
+    <style name="TransparentButton">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/padding_small</item>
+    </style>
 </resources>

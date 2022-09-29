@@ -156,8 +156,10 @@
         <entry key="../../../../layout/compose-model-1664224591858.xml" value="0.13210412147505424" />
         <entry key="../../../../layout/compose-model-1664224610763.xml" value="0.335" />
         <entry key="../../../../layout/compose-model-1664227227922.xml" value="0.165" />
+        <entry key="../../../../layout/compose-model-1664471693321.xml" value="0.2518518518518518" />
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_back_button.xml" value="0.136" />
+        <entry key="app/src/main/res/drawable/bg_item_vertical_row.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/bg_pin_number_not_selected.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/bg_selected_button.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/bg_tabbar_not_selected.xml" value="0.1365" />
@@ -168,10 +170,12 @@
         <entry key="app/src/main/res/drawable/dialog_box_button_background_purple.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/dialog_box_button_background_red.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/dialog_box_button_background_yellow.xml" value="0.136" />
+        <entry key="app/src/main/res/drawable/ic_baseline_house.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/ic_baseline_map.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_compass_adobe_express.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_tenant.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/ic_xmark_solid.xml" value="0.136" />
+        <entry key="app/src/main/res/drawable/state_item_vertical_row.xml" value="0.136" />
         <entry key="app/src/main/res/layout/activity_addhome.xml" value="0.2911458333333333" />
         <entry key="app/src/main/res/layout/activity_onboard.xml" value="0.14375" />
         <entry key="app/src/main/res/layout/alert_dialog_layout.xml" value="0.2921875" />
@@ -179,11 +183,13 @@
         <entry key="app/src/main/res/layout/component_home_rent_input.xml" value="0.18694458007812503" />
         <entry key="app/src/main/res/layout/component_home_rent_switch.xml" value="0.2466106838650174" />
         <entry key="app/src/main/res/layout/component_pin_number.xml" value="0.2921875" />
+        <entry key="app/src/main/res/layout/component_vertical_row.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/homepage_activity.xml" value="0.21203703703703702" />
         <entry key="app/src/main/res/layout/item_vertical_row.xml" value="0.2921875" />
         <entry key="app/src/main/res/layout/loading_layout.xml" value="0.2921875" />
         <entry key="app/src/main/res/layout/sample_home_rent_input.xml" value="0.30364583333333334" />
         <entry key="app/src/main/res/layout/sample_home_rent_switch.xml" value="0.2921875" />
+        <entry key="app/src/main/res/layout/vertical_row.xml" value="0.2911458333333333" />
       </map>
     </option>
   </component>

@@ -2,6 +2,7 @@
 <layout xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="androidx.core.content.ContextCompat" />
 
         <variable
             name="itemClickListener"
@@ -15,19 +16,23 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:background="@{item.backgroundId}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/TransparentButton"
             android:padding="@dimen/margin_small"
-            style="@style/HomeRentTitle.Black"
             tools:text="Sport"
+            android:textColor="@{ContextCompat.getColor(context,item.textColor)}"
             android:text="@{item.text}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
