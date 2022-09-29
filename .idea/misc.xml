@@ -155,6 +155,7 @@
         <entry key="../../../../layout/compose-model-1664050776140.xml" value="0.2518518518518518" />
         <entry key="../../../../layout/compose-model-1664224591858.xml" value="0.13210412147505424" />
         <entry key="../../../../layout/compose-model-1664224610763.xml" value="0.335" />
+        <entry key="../../../../layout/compose-model-1664227227922.xml" value="0.165" />
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_back_button.xml" value="0.136" />
         <entry key="app/src/main/res/drawable/bg_pin_number_not_selected.xml" value="0.1365" />
@@ -179,6 +180,7 @@
         <entry key="app/src/main/res/layout/component_home_rent_switch.xml" value="0.2466106838650174" />
         <entry key="app/src/main/res/layout/component_pin_number.xml" value="0.2921875" />
         <entry key="app/src/main/res/layout/homepage_activity.xml" value="0.21203703703703702" />
+        <entry key="app/src/main/res/layout/item_vertical_row.xml" value="0.2921875" />
         <entry key="app/src/main/res/layout/loading_layout.xml" value="0.2921875" />
         <entry key="app/src/main/res/layout/sample_home_rent_input.xml" value="0.30364583333333334" />
         <entry key="app/src/main/res/layout/sample_home_rent_switch.xml" value="0.2921875" />

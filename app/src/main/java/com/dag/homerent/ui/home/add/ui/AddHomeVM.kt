@@ -13,31 +13,34 @@ class AddHomeVM @Inject constructor(
     private val addHomeContentUseCase: AddHomeContentUseCase
 ) : HomeRentViewModel() {
 
-    val stepCount = ObservableField<String>()
-    private var step = 0
+    val buttonText = ObservableField<String>()
+    var step = 0
 
     init {
         incrementStep()
-        getActivityBody()
+        getActivityBody(ContentPages.AddHome)
     }
 
-    fun getActivityBody() {
-        addHomeContentUseCase.observe(
-            ContentPages.AddHome.name
-        ).subscribeNotNull {
-            viewState.postValue(
-                AddHomeVS.PageContent(it)
+    fun getActivityBody(contentPage: ContentPages) {
+        if (step == 2) {
+            buttonText.set(
+                resourceManager.getString(R.string.activity_addhome_nextbutton_state2)
+            )
+        } else if (step == 1) {
+            buttonText.set(
+                resourceManager.getString(R.string.activity_addhome_nextbutton)
             )
         }
+        addHomeContentUseCase.observe(contentPage.name)
+            .subscribeNotNull {
+                viewState.postValue(
+                    AddHomeVS.PageContent(it)
+                )
+            }
     }
 
     fun incrementStep() {
         step += 1
-        val str = resourceManager.getString(
-            R.string.add_home_section_title,
-            listOf(step.toString(), "Other detail")
-        )
-        stepCount.set(str)
     }
 
     fun decrementStep() {

@@ -12,6 +12,7 @@ import javax.inject.Inject
 class PasswordVM @Inject constructor(
     var registerUseCase: RegisterUseCase
 ) : HomeRentViewModel() {
+
     val passwordState by mutableStateOf(PasswordState())
 
     fun createUser(registerModel: RegisterUserModel,userType:String){

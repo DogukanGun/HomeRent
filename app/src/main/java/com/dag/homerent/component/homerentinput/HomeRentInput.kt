@@ -67,7 +67,7 @@ class HomeRentInput : LinearLayout {
 
     fun refreshLayout(textField: TextField) {
         binding.apply {
-            titleTV.text = textField.hint
+            titleTV.text = textField.title
             textET.hint = textField.hint
             try {
                 textET.inputType = InputType.TYPE_CLASS_TEXT or

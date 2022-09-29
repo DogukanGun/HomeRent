@@ -4,9 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.dag.homerent.BR
 
 open class BasicAdapter<T> protected constructor(
     private val itemLayout: Int,
@@ -53,8 +52,7 @@ open class BasicAdapter<T> protected constructor(
         }
 
         fun bind(item: T) {
-            //binding.setVariable(BR.item, item)
-
+            binding.setVariable(BR.item, item)
             if (selectionEnabled) {
                 itemView.isSelected = adapterPosition == selectedIndex
             }

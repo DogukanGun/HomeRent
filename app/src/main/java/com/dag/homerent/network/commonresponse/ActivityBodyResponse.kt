@@ -15,5 +15,6 @@ data class ActivityBodyResponse(
 data class TextField(
     val hint: String,
     val title: String,
+    val key: String,
     val type: TextFieldType
 ) : Parcelable

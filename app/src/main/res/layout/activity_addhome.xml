@@ -40,7 +40,6 @@
 
         <TextView
             android:id="@+id/titleTV"
-            android:text="@{viewModel.stepCount}"
             tools:text="Step1 - Other detail"
             android:layout_width="wrap_content"
             android:background="@drawable/dialog_box_button_background_orange"
@@ -69,7 +68,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextButtonBTN"
             style="@style/StandartButton"
-            android:text="@string/activity_addhome_nextbutton"
+            android:text="@{viewModel.buttonText}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_medium"

@@ -23,7 +23,8 @@
     <string name="home_screen_section_1">Categories</string>
     <string name="home_screen_section_2">Popular Homes</string>
     <string name="add_home_section_title">Step{1} - {2}</string>
-    <string name="activity_addhome_nextbutton">Continue</string>
+    <string name="activity_addhome_nextbutton">CONTINUE</string>
+    <string name="activity_addhome_nextbutton_state2">DONE</string>
     <string name="activity_addhome_screen_title">Rent Home</string>
 
 </resources>
