@@ -7,6 +7,8 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import com.dag.homerent.R
 import com.dag.homerent.base.ext.tryCatch
+import com.dag.homerent.base.ui.HomeRentActivity
+import com.dag.homerent.base.ui.HomerentNavigator
 import com.dag.homerent.dailogbox.*
 import com.dag.homerent.injection.NetworkModule
 import com.dag.homerent.network.BaseResult
@@ -45,54 +47,54 @@ class BaseDialogBoxUtil @Inject constructor(
                 dialogView.alertDialogErrorIcon.visibility = View.GONE
             }
             when(dialogBox.color){
-                DailogBoxColorType.ORANGE ->{
+                DailogBoxColorType.ORANGE -> {
                     dialogView.alertDialogTitle.setTextColor(R.color.yellow)
                     dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_orange)
                     dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
 
-                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_orange)
-                    dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_orange)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.black)
                 }
-                DailogBoxColorType.YELLOW ->{
+                DailogBoxColorType.YELLOW -> {
                     dialogView.alertDialogTitle.setTextColor(R.color.yellow)
                     dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_yellow)
                     dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
 
-                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_yellow)
-                    dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_yellow)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.black)
                 }
-                DailogBoxColorType.CYAN ->{
+                DailogBoxColorType.CYAN -> {
                     dialogView.alertDialogTitle.setTextColor(R.color.cyan)
                     dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_cyan)
                     dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
 
-                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_cyan)
-                    dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_cyan)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.black)
                 }
-                DailogBoxColorType.PURPLE ->{
+                DailogBoxColorType.PURPLE -> {
                     dialogView.alertDialogTitle.setTextColor(R.color.purple)
                     dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_purple)
                     dialogView.alertDialogNegativeButton.setTextColor(R.color.white)
 
-                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_purple)
-                    dialogView.alertDialogNegativeButton.setTextColor(R.color.white)
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_purple)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.white)
                 }
-                DailogBoxColorType.GREEN ->{
+                DailogBoxColorType.GREEN -> {
                     dialogView.alertDialogTitle.setTextColor(R.color.green)
                     dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_green)
                     dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
 
-                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_green)
-                    dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_green)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.black)
                 }
-                DailogBoxColorType.RED ->{
+                DailogBoxColorType.RED -> {
                     dialogView.alertDialogTitle.setTextColor(R.color.red)
                     dialogView.alertDialogTitle.setTextColor(R.color.green)
                     dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_red)
                     dialogView.alertDialogNegativeButton.setTextColor(R.color.white)
 
-                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_red)
-                    dialogView.alertDialogNegativeButton.setTextColor(R.color.white)
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_red)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.white)
                 }
                 else -> {}
             }
@@ -155,17 +157,17 @@ class BaseDialogBoxUtil @Inject constructor(
     }
 
     fun sendGenericRequest(activity: Activity?, requestModel: RequestModel?, onSuccess:()->Unit = {}){
-        if (activity is HomeRentActivity<*,*>){
-            var body:Any? = null
-            if (!requestModel?.body.isNullOrEmpty()){
-                body = hashMapOf<String,Any>().apply {
-                    requestModel?.body?.forEach{
-                        if (it.key is String && it.value != null){
-                            put(it.key,it.value)
+        if (activity is HomeRentActivity<*, *>) {
+            var body: Any? = null
+            if (!requestModel?.body.isNullOrEmpty()) {
+                body = hashMapOf<String, Any>().apply {
+                    requestModel?.body?.forEach {
+                        if (it.key is String && it.value != null) {
+                            put(it.key, it.value)
                         }
                     }
                 }
-            }else if(requestModel?.bodyAsJsonString?.isEmpty() == false){
+            } else if (requestModel?.bodyAsJsonString?.isEmpty() == false) {
                 body = JsonParser.parseString(requestModel.bodyAsJsonString).asJsonObject
             }
 

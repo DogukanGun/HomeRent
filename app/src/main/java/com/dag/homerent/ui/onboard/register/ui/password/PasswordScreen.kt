@@ -74,6 +74,7 @@ fun PasswordScreen(
                     onValueChange = {
                         password = it
                     },
+                    password = true,
                     modifier = Modifier.padding(top = 14.dp, start = 15.dp, end = 15.dp),
                     leadingIcon = null,
                     keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.NumberPassword),

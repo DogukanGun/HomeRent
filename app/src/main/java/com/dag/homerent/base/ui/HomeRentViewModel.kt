@@ -1,7 +1,8 @@
-package com.dag.homerent.base
+package com.dag.homerent.base.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.viewModelScope
 import com.dag.homerent.base.ext.onSuccess
 import com.dag.homerent.base.ext.retryIf
@@ -25,6 +26,8 @@ abstract class HomeRentViewModel:ViewModel() {
     private fun updateLoading(isLoading: Boolean) {
         this.loading.value = isLoading
     }
+
+    fun isLoading() = loading.distinctUntilChanged()
 
     private fun postViewEffect(effect: HomeRentViewState) {
         viewState.value = effect

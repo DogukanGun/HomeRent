@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.dag.homerent.R
 import com.dag.homerent.composebase.navcontroller.NavGraph
 import com.dag.homerent.composebase.navcontroller.NavScreen
+import com.dag.homerent.localdatastorage.preferencesdatastore.PreferencesDataStore
 import com.dag.homerent.ui.theme.Background
 import com.dag.homerent.ui.theme.HomeRentTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,17 +29,21 @@ import javax.inject.Inject
 class OnboardComposeActivity : ComponentActivity() {
 
     @Inject
-    lateinit var onboardVM:OnboardVM
+    lateinit var onboardVM: OnboardVM
 
     var onboardActive = true
+
+    @Inject
+    lateinit var preferencesDataStore: PreferencesDataStore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             HomeRentTheme {
                 NavGraph(
-                    startDestination = NavScreen.WelcomeScreen.route,
-                    isOnboard = onboardActive
+                    startDestination = NavScreen.SplashScreen.route,
+                    isOnboard = onboardActive,
+                    preferencesDataStore = preferencesDataStore
                 )
             }
         }

@@ -6,30 +6,31 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class AddHomeModel(
-    var homeName: String,
-    var homePhoto: String,
-    var price: Double,
-    var bedroomCount: Int,
-    var propertyType: String,
-    var size: Double,
-    var waterBillIncluded: Boolean,
-    var electricityBillIncluded: Boolean,
-    var message: String,
-    var autoPay: Boolean,
-    var homeImagesAsBase64: List<String>,
+    var homeName: String = "",
+    var homePhoto: String = "",
+    var price: Double = 0.0,
+    var bedroomCount: Int = 0,
+    var propertyType: String = "",
+    var size: Double = 0.0,
+    var waterBillIncluded: Boolean = false,
+    var electricityBillIncluded: Boolean = false,
+    var message: String = "",
+    var autoPay: Boolean = false,
+    var homeImagesAsBase64: List<String> = emptyList(),
     @SerializedName("createLandlordAccountRequest")
-    var landlordAccount: LandlordAccount,
-    var createFacilityRequests: CreateFacilityRequests
+    var landlordAccount: LandlordAccount = LandlordAccount(),
+    var createFacilityRequests: MutableList<CreateFacilityRequests> = mutableListOf()
+
 ) : Parcelable
 
 @Parcelize
 data class LandlordAccount(
-    var accountNumber: String,
-    var bankName: String,
-    var walletNumber: String
+    var accountNumber: String = "",
+    var bankName: String = "",
+    var walletNumber: String = ""
 ) : Parcelable
 
 @Parcelize
 data class CreateFacilityRequests(
-    var facilityType: String
+    var facilityType: String = ""
 ) : Parcelable

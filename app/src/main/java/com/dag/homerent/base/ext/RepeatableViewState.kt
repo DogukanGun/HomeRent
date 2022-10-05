@@ -1,6 +1,6 @@
 package com.dag.homerent.base.ext
 
-import com.dag.homerent.base.HomeRentViewState
+import com.dag.homerent.base.ui.HomeRentViewState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.suspendCancellableCoroutine
 

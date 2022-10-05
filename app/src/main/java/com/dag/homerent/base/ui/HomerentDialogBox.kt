@@ -1,9 +1,9 @@
-package com.dag.homerent.base
+package com.dag.homerent.base.ui
 
 import android.app.Activity
-import androidx.appcompat.app.AlertDialog
+import android.view.View
 import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AlertDialog
 import com.dag.homerent.R
 import com.dag.homerent.base.ext.makeGone
 import com.dag.homerent.base.ext.makeVisible
@@ -40,23 +40,70 @@ class HomerentDialogBox {
             }
             val builder = AlertDialog.Builder(activity)
             val dialogView = activity.layoutInflater.inflate(R.layout.alert_dialog_layout, null)
-            //bu kısımda dialog box içinden renk alabilirsin.
-            //sonra bunları when ile kontrol et
-            //bütün renk vb atamalar dialogView içinde olmalı
+            if (isIconVisible) {
+                dialogView.alertDialogErrorIcon.setImageResource(R.drawable.ic_xmark_solid)
+            } else {
+                dialogView.alertDialogErrorIcon.visibility = View.GONE
+            }
             builder.setView(dialogView)
             builder.setCancelable(isCancelable)
-            dialogView.setBackgroundColor(
-                ContextCompat.getColor(
-                    activity.applicationContext,
-                    R.color.purple_200
-                )
-            )
+            when (dialogPrimaryColor) {
+                DialogPrimaryColor.Orange -> {
+                    dialogView.alertDialogTitle.setTextColor(R.color.yellow)
+                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_orange)
+                    dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
+
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_orange)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.black)
+                }
+                DialogPrimaryColor.Yellow -> {
+                    dialogView.alertDialogTitle.setTextColor(R.color.yellow)
+                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_yellow)
+                    dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
+
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_yellow)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.black)
+                }
+                DialogPrimaryColor.Cyan -> {
+                    dialogView.alertDialogTitle.setTextColor(R.color.cyan)
+                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_cyan)
+                    dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
+
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_cyan)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.black)
+                }
+                DialogPrimaryColor.Purple -> {
+                    dialogView.alertDialogTitle.setTextColor(R.color.purple)
+                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_purple)
+                    dialogView.alertDialogNegativeButton.setTextColor(R.color.white)
+
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_purple)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.white)
+                }
+                DialogPrimaryColor.Green -> {
+                    dialogView.alertDialogTitle.setTextColor(R.color.green)
+                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_green)
+                    dialogView.alertDialogNegativeButton.setTextColor(R.color.black)
+
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_green)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.black)
+                }
+                DialogPrimaryColor.Red -> {
+                    dialogView.alertDialogTitle.setTextColor(R.color.red)
+                    dialogView.alertDialogTitle.setTextColor(R.color.green)
+                    dialogView.alertDialogNegativeButton.setBackgroundResource(R.drawable.dialog_box_button_background_red)
+                    dialogView.alertDialogNegativeButton.setTextColor(R.color.white)
+
+                    dialogView.alertDialogPositiveButton.setBackgroundResource(R.drawable.dialog_box_button_background_red)
+                    dialogView.alertDialogPositiveButton.setTextColor(R.color.white)
+                }
+                else -> {}
+            }
             val alertDialog = builder.create()
             val clDialog = ClDialog(alertDialog, dialogKey)
             activeDialogs.add(clDialog)
-            dialogView.alertDialogTitle.text = "DialogBoxUtil from Static"
-            dialogView.alertDialogTitle.alertDialogMessage.text =
-                "DialogBoxUtil message from Static"
+            dialogView.alertDialogTitle.text = title
+            dialogView.alertDialogMessage.text = message
             if (iconNextToText?.primaryIcon != 0) {
                 dialogView.alertDialogErrorIcon.makeVisible()
                 dialogView.alertDialogErrorIcon.setBackground(iconNextToText?.primaryIcon)
@@ -96,8 +143,6 @@ class HomerentDialogBox {
                 }
             }
             dialogView.setPadding(0, 0, 0, 0)
-            //backend den buttonList gelecek. 0 ve 1 indekslerini teker teker butona atayacaksın
-            //gelen butonlara aşağıda yer alan buton özelliğini taşı
             return if (create) {
                 alertDialog
             } else {

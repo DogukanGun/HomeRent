@@ -2,7 +2,11 @@ package com.dag.homerent.injection
 
 import android.app.Application
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.dag.homerent.base.*
+import com.dag.homerent.base.BaseDialogBoxUtil
+import com.dag.homerent.base.HeaderManager
+import com.dag.homerent.base.HomeRentActivityListener
+import com.dag.homerent.base.HomeRentApplication
+import com.dag.homerent.base.ui.HomerentNavigator
 import com.dag.homerent.network.BaseNetworkLogger
 import com.dag.homerent.network.DialogBoxInterceptor
 import com.dag.homerent.network.HomerentService

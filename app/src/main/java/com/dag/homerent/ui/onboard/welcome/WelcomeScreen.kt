@@ -1,5 +1,4 @@
-package com.dag.homerent.ui.onboard
-
+package com.dag.homerent.ui.onboard.welcome
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -7,23 +6,29 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import com.dag.homerent.R
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.dag.homerent.R
 import com.dag.homerent.composebase.HomeRentPreview
 import com.dag.homerent.composebase.button.CustomButton
 import com.dag.homerent.composebase.navcontroller.NavScreen
+import com.dag.homerent.ui.onboard.OnboardSurface
 
 
 @Composable
-fun WelcomeScreen(navController: NavHostController) {
-    OnboardSurface{
+fun WelcomeScreen(
+    navController: NavHostController,
+    viewModel: WelcomeVM = viewModel()
+) {
+    val state = viewModel.welcomeState
+    OnboardSurface {
         Column(
             verticalArrangement = Arrangement.Center
         ) {
@@ -50,7 +55,7 @@ fun WelcomeScreen(navController: NavHostController) {
                 onClick = {
                     navController.navigate(NavScreen.PhoneScreen.route)
                 },
-                border= BorderStroke(1.dp, Color.Black),
+                border = BorderStroke(1.dp, Color.Black),
                 color = MaterialTheme.colors.primary
             ) {
                 Text(
@@ -71,8 +76,10 @@ fun WelcomeScreen(navController: NavHostController) {
 
 @Composable
 @Preview
-fun WelcomeScreenPreview(){
+fun WelcomeScreenPreview() {
     HomeRentPreview {
-        WelcomeScreen(rememberNavController())
+        WelcomeScreen(
+            rememberNavController(),
+        )
     }
 }

@@ -13,4 +13,8 @@ class AddHomeRepository @Inject constructor(
     fun getContent(pageName: String) = fetch {
         homerentService.getActivityBody(pageName).getDataAsResult()
     }
+
+    fun createHome(addHomeModel: AddHomeModel) = fetch {
+        homerentService.createHome(addHomeModel).getDataAsResult()
+    }
 }

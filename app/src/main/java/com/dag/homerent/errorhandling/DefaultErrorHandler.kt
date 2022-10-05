@@ -1,7 +1,10 @@
 package com.dag.homerent.errorhandling
 
 
-import com.dag.homerent.base.HomeRentViewState
+import com.dag.homerent.R
+import com.dag.homerent.base.ui.HomeRentViewState
+import com.dag.homerent.dailogbox.createGenericDialog
+import com.dag.homerent.dailogbox.createRepeatableDialog
 import com.dag.homerent.network.*
 import java.net.HttpURLConnection
 import javax.inject.Inject
@@ -21,7 +24,7 @@ open class DefaultErrorHandler @Inject constructor() : ErrorHandler {
                 if (throwable.response.code() == HttpURLConnection.HTTP_GATEWAY_TIMEOUT) {
                     createRepeatableDialog()
                 } else {
-                    createGenericDialog()
+                    networkConnectionDialog()
                 }
             }
             else -> {null}
@@ -31,12 +34,7 @@ open class DefaultErrorHandler @Inject constructor() : ErrorHandler {
 
 // TODO: Hata mesajları gösterilcek
 
-fun networkConnectionDialog():HomeRentViewState?{
-    return null
-}
-fun createRepeatableDialog():HomeRentViewState?{
-    return null
-}
-fun createGenericDialog():HomeRentViewState?{
-    return null
-}
+fun networkConnectionDialog(): HomeRentViewState = createGenericDialog(
+    titleRes = R.string.network_error_message_title,
+    messageRes = R.string.network_error_message_text,
+)

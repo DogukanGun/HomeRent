@@ -3,7 +3,7 @@ package com.dag.homerent.dailogbox
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatDialog
 import androidx.fragment.app.FragmentActivity
-import com.dag.homerent.base.HomerentDialogBox
+import com.dag.homerent.base.ui.HomerentDialogBox
 import javax.inject.Inject
 
 class ModelDialogHandler @Inject constructor(){

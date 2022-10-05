@@ -2,7 +2,8 @@ package com.dag.homerent.composebase.navcontroller
 
 sealed class NavScreen(val route:String) {
 
-    object WelcomeScreen:NavScreen("welcome_screen")
+    object SplashScreen : NavScreen("splash_screen")
+    object WelcomeScreen : NavScreen("welcome_screen")
     object PhoneScreen:NavScreen("phone_screen")
     object PasswordScreen:NavScreen("password_screen")
     object LoginScreen:NavScreen("login_screen")

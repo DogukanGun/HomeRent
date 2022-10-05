@@ -1,7 +1,7 @@
 package com.dag.homerent.dailogbox
 
-import com.dag.homerent.base.HomeRentViewState
-import com.dag.homerent.base.HomerentDialogBox
+import com.dag.homerent.base.ui.HomeRentViewState
+import com.dag.homerent.base.ui.HomerentDialogBox
 
 
 interface ModelDialog: HomeRentViewState {
@@ -11,6 +11,6 @@ interface ModelDialog: HomeRentViewState {
     val negativeButton: ModelDialogButton?
     val positiveButton: ModelDialogButton
     val isCancelable:Boolean
-    val isIconVisible:Boolean
-    val dialogPrimaryColor:HomerentDialogBox.DialogPrimaryColor
+    val isIconVisible: Boolean
+    val dialogPrimaryColor: HomerentDialogBox.DialogPrimaryColor
 }

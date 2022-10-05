@@ -14,11 +14,11 @@ import androidx.navigation.navArgument
 import com.dag.homerent.composebase.HomeRentSurface
 import com.dag.homerent.composebase.appbar.CustomAppbar
 import com.dag.homerent.composebase.bottomnavigation.CustomBottomNavigation
+import com.dag.homerent.localdatastorage.preferencesdatastore.PreferencesDataStore
 import com.dag.homerent.ui.home.HomeActivity
 import com.dag.homerent.ui.home.homescreen.HomeScreen
 import com.dag.homerent.ui.home.homescreen.HomeScreenVM
 import com.dag.homerent.ui.home.list.HomeListScreen
-import com.dag.homerent.ui.onboard.WelcomeScreen
 import com.dag.homerent.ui.onboard.login.ui.LoginUser
 import com.dag.homerent.ui.onboard.login.ui.LoginVM
 import com.dag.homerent.ui.onboard.register.data.dto.UserRegisterFirstStepInfo
@@ -26,11 +26,16 @@ import com.dag.homerent.ui.onboard.register.ui.password.PasswordScreen
 import com.dag.homerent.ui.onboard.register.ui.password.PasswordVM
 import com.dag.homerent.ui.onboard.register.ui.phone.PhoneScreen
 import com.dag.homerent.ui.onboard.register.ui.phone.PhoneVM
+import com.dag.homerent.ui.onboard.splash.SplashScreen
+import com.dag.homerent.ui.onboard.splash.SplashVM
+import com.dag.homerent.ui.onboard.welcome.WelcomeScreen
+import com.dag.homerent.ui.onboard.welcome.WelcomeVM
 
 @Composable
 fun NavGraph(
     startDestination: String = NavScreen.WelcomeScreen.route,
-    isOnboard: Boolean = false
+    isOnboard: Boolean = false,
+    preferencesDataStore: PreferencesDataStore
 ) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -56,8 +61,19 @@ fun NavGraph(
             navController = navController,
             startDestination = startDestination
         ) {
+            composable(NavScreen.SplashScreen.route) {
+                val viewModel = hiltViewModel<SplashVM>()
+                SplashScreen(
+                    navController = navController,
+                    viewModel = viewModel
+                )
+            }
             composable(NavScreen.WelcomeScreen.route) {
-                WelcomeScreen(navController = navController)
+                val viewModel = hiltViewModel<WelcomeVM>()
+                WelcomeScreen(
+                    navController = navController,
+                    viewModel = viewModel
+                )
             }
             composable(NavScreen.PhoneScreen.route) {
                 val viewModel = hiltViewModel<PhoneVM>()
@@ -82,12 +98,8 @@ fun NavGraph(
                 )
             ) { backStackEntry ->
                 val viewModel = hiltViewModel<PasswordVM>()
-                val username = backStackEntry.
-                                    arguments?.
-                                    getString("username") ?: ""
-                val userType = backStackEntry.
-                                    arguments?.
-                                    getString("userType") ?: ""
+                val username = backStackEntry.arguments?.getString("username") ?: ""
+                val userType = backStackEntry.arguments?.getString("userType") ?: ""
                 PasswordScreen(
                     viewModel = viewModel,
                     userInfo = UserRegisterFirstStepInfo(

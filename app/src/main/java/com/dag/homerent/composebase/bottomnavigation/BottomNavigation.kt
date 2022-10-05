@@ -81,7 +81,10 @@ fun CustomBottomNavigation(
         FloatingActionButton(
             modifier = Modifier
                 .align(Alignment.TopEnd)
-                .padding(bottom = 20.dp),
+                .padding(
+                    bottom = 20.dp,
+                    end = 20.dp
+                ),
             backgroundColor = HomeListRowButtonColor,
             onClick = {
                 val activity = context.findActivity()

@@ -1,9 +1,9 @@
 package com.dag.homerent.network
 
 import com.dag.homerent.base.BaseDialogBoxUtil
-import com.dag.homerent.base.HomeRentActivity
 import com.dag.homerent.base.HomeRentActivityListener
 import com.dag.homerent.base.ext.tryCatch
+import com.dag.homerent.base.ui.HomeRentActivity
 import com.google.gson.Gson
 import okhttp3.Interceptor
 import okhttp3.Response

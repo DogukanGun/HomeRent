@@ -1,7 +1,7 @@
 package com.dag.homerent.dailogbox
 
 import androidx.annotation.StringRes
-import com.dag.homerent.base.HomerentDialogBox
+import com.dag.homerent.base.ui.HomerentDialogBox
 
 data class DefaultModelDialog(
     @StringRes override val titleRes:Int? = null,

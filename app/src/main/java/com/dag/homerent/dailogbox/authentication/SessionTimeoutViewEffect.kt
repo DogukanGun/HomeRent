@@ -3,9 +3,9 @@ package com.dag.homerent.dailogbox.authentication
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
 import com.dag.homerent.R
-import com.dag.homerent.base.HomeRentViewState
 import com.dag.homerent.base.HomerentSessionUtil
 import com.dag.homerent.base.ext.openActivity
+import com.dag.homerent.base.ui.HomeRentViewState
 import com.dag.homerent.dailogbox.DefaultModelDialog
 import com.dag.homerent.dailogbox.ModelDialog
 import com.dag.homerent.dailogbox.ModelDialogButton

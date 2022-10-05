@@ -18,6 +18,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -184,6 +186,7 @@ fun NumberInput(
     leadingIcon: @Composable() (() -> Unit)?,
     trailingIcon: @Composable () -> Unit,
     label: String = "",
+    password: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Text),
 ) {
     var text by remember { mutableStateOf("") }
@@ -209,7 +212,9 @@ fun NumberInput(
             .background(BackgroundColor),
         leadingIcon = leadingIcon,
         keyboardOptions = keyboardOptions,
-        trailingIcon = trailingIcon
+        trailingIcon = trailingIcon,
+        visualTransformation = if (password) PasswordVisualTransformation()
+        else VisualTransformation.None
     )
 }
 

@@ -64,6 +64,7 @@ fun LoginUser(
                 onValueChange = {
                     passwordNumber = it
                 },
+                password = true,
                 modifier = Modifier
                     .padding(top = 14.dp, start = 15.dp, end = 15.dp),
                 leadingIcon = {},

@@ -1,7 +1,8 @@
-package com.dag.homerent.base
+package com.dag.homerent.base.ui
 
 import android.content.Intent
 import com.dag.homerent.R
+import com.dag.homerent.base.HomeRentActivityListener
 import com.dag.homerent.dailogbox.KeyValueModel
 import com.dag.homerent.ui.home.HomeActivity
 import javax.inject.Inject
@@ -13,17 +14,17 @@ class HomerentNavigator @Inject constructor(private val activityListener: HomeRe
     }
 
     fun openActivityByDeepLink(
-        deepLinkActivityType:DeepLinkActivityType?,
-        arguments:Array<KeyValueModel<String, Any?>>? = null,
-        requestCode:RequestCodeType? = null,
-        anim:TransitionAnimationType = TransitionAnimationType.LEFT_LEFT,
-        flags:Int? = null,
+        deepLinkActivityType: DeepLinkActivityType?,
+        arguments: Array<KeyValueModel<String, Any?>>? = null,
+        requestCode: RequestCodeType? = null,
+        anim: TransitionAnimationType = TransitionAnimationType.LEFT_LEFT,
+        flags: Int? = null,
     ){
         activityListener.currentActivity?.run {
             deepLinkActivityType?.let {
                 val intent = Intent(this,it.clazz)
                 if (arguments!=null){
-                    intent.putExtra(HomerentNavigator.ARGUMENTS,arguments)
+                    intent.putExtra(ARGUMENTS, arguments)
                 }
                 if (flags!=null){
                     intent.addFlags(flags)

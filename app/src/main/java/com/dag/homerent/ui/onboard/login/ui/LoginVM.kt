@@ -3,7 +3,7 @@ package com.dag.homerent.ui.onboard.login.ui
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import com.dag.homerent.base.HeaderManager
-import com.dag.homerent.base.HomeRentViewModel
+import com.dag.homerent.base.ui.HomeRentViewModel
 import com.dag.homerent.session.HomerentSessionManager
 import com.dag.homerent.session.SessionKey
 import com.dag.homerent.ui.onboard.login.data.request.LoginRequest

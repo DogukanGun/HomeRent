@@ -1,6 +1,6 @@
 package com.dag.homerent.dailogbox
 
-import com.dag.homerent.base.HomeRentViewState
+import com.dag.homerent.base.ui.HomeRentViewState
 import kotlinx.coroutines.suspendCancellableCoroutine
 
 interface RepeatableViewEffect: HomeRentViewState {

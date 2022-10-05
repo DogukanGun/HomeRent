@@ -1,12 +1,12 @@
 package com.dag.homerent.dailogbox
 
 import com.dag.homerent.R
-import com.dag.homerent.base.HomerentDialogBox
+import com.dag.homerent.base.ui.HomerentDialogBox
 
 
 fun createRepeatableDialog(
     titleRes: Int = R.string.app_name,
-    messageRes: Int = com.airbnb.lottie.R.string.search_menu_title,
+    messageRes: Int = R.string.repeatable_dialog_error_message,
     positiveButton: ModelDialogButton = ModelDialogButton(textRes = R.string.app_name),
     negativeButton: ModelDialogButton? = null,
     isCancelable: Boolean = false,

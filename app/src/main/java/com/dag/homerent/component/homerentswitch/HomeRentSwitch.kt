@@ -3,8 +3,11 @@ package com.dag.homerent.component.homerentswitch
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.CompoundButton
 import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.dag.homerent.R
 import com.dag.homerent.databinding.ComponentHomeRentSwitchBinding
 import com.dag.homerent.network.commonresponse.TextField
@@ -12,6 +15,8 @@ import com.dag.homerent.network.commonresponse.TextField
 class HomeRentSwitch : LinearLayout {
 
     lateinit var binding: ComponentHomeRentSwitchBinding
+    private val _switchState = MutableLiveData<Boolean>()
+    val switchState: LiveData<Boolean> = _switchState
 
     constructor(context: Context?) : super(context) {
         init(null, 0)
@@ -46,6 +51,11 @@ class HomeRentSwitch : LinearLayout {
                 this,
                 true
             )
+        binding.waterBillValueSC.setOnCheckedChangeListener(onCheckedChangeListener)
+    }
+
+    private val onCheckedChangeListener = CompoundButton.OnCheckedChangeListener { button, state ->
+        _switchState.postValue(state)
     }
 
     fun refresh(textField: TextField) {

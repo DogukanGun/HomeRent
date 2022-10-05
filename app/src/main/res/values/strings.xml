@@ -27,4 +27,9 @@
     <string name="activity_addhome_nextbutton_state2">DONE</string>
     <string name="activity_addhome_screen_title">Rent Home</string>
 
+
+    <string name="network_error_message_title">Network Error</string>
+    <string name="network_error_message_text">Please try again.</string>
+    <string name="repeatable_dialog_error_message">Let\'s try again.</string>
+
 </resources>

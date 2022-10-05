@@ -1,6 +1,8 @@
 package com.dag.homerent.network
 
 import com.dag.homerent.network.commonresponse.ActivityBodyResponse
+import com.dag.homerent.ui.home.add.data.AddHomeModel
+import com.dag.homerent.ui.home.add.data.AddHomeModelResponse
 import com.dag.homerent.ui.onboard.login.data.request.LoginRequest
 import com.dag.homerent.ui.onboard.login.data.response.LoginResponse
 import com.dag.homerent.ui.onboard.register.data.request.RegisterUserModel
@@ -32,4 +34,7 @@ interface HomerentService {
 
     @GET("formcontent/name/{name}")
     suspend fun getActivityBody(@Path("name") name: String): BaseResult<ApiResponse<ActivityBodyResponse>>
+
+    @POST("home/create")
+    suspend fun createHome(@Body addHomeModel: AddHomeModel): BaseResult<ApiResponse<AddHomeModelResponse>>
 }

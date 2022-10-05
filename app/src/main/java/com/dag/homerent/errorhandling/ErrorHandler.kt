@@ -1,6 +1,6 @@
 package com.dag.homerent.errorhandling
 
-import com.dag.homerent.base.HomeRentViewState
+import com.dag.homerent.base.ui.HomeRentViewState
 
 
 interface ErrorHandler {
