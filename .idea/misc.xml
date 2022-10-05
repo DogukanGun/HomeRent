@@ -192,6 +192,7 @@
         <entry key="app/src/main/res/layout/activity_addhome.xml" value="0.2911458333333333" />
         <entry key="app/src/main/res/layout/activity_onboard.xml" value="0.14375" />
         <entry key="app/src/main/res/layout/alert_dialog_layout.xml" value="0.2921875" />
+        <entry key="app/src/main/res/layout/component__homerent_locationpicker.xml" value="0.335" />
         <entry key="app/src/main/res/layout/component_entrance.xml" value="0.2911458333333333" />
         <entry key="app/src/main/res/layout/component_home_rent_input.xml" value="0.18694458007812503" />
         <entry key="app/src/main/res/layout/component_home_rent_switch.xml" value="0.2466106838650174" />

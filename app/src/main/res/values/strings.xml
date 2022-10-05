@@ -32,4 +32,6 @@
     <string name="network_error_message_text">Please try again.</string>
     <string name="repeatable_dialog_error_message">Let\'s try again.</string>
 
+    <string name="component_homerent_locationpicker">Your location:</string>
+
 </resources>
