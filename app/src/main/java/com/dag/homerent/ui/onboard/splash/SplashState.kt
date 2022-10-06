@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 
 data class SplashState(
     var welcomeScreenResult: MutableState<WelcomeScreenResult> = mutableStateOf(WelcomeScreenResult.Wait),
+    var welcomeScreenDone: MutableState<Boolean> = mutableStateOf(false)
 )
 
 sealed class WelcomeScreenResult {

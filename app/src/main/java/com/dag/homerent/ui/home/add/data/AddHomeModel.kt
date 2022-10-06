@@ -16,11 +16,10 @@ data class AddHomeModel(
     var electricityBillIncluded: Boolean = false,
     var message: String = "",
     var autoPay: Boolean = false,
-    var homeImagesAsBase64: List<String> = emptyList(),
     @SerializedName("createLandlordAccountRequest")
     var landlordAccount: LandlordAccount = LandlordAccount(),
-    var createFacilityRequests: MutableList<CreateFacilityRequests> = mutableListOf()
-
+    var createFacilityRequests: MutableList<CreateFacilityRequests> = mutableListOf(),
+    var homeCoordinate: HomeCoordinate = HomeCoordinate()
 ) : Parcelable
 
 @Parcelize
@@ -33,4 +32,10 @@ data class LandlordAccount(
 @Parcelize
 data class CreateFacilityRequests(
     var facilityType: String = ""
+) : Parcelable
+
+@Parcelize
+data class HomeCoordinate(
+    var long: Double = 0.0,
+    var lat: Double = 0.0
 ) : Parcelable

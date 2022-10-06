@@ -11,9 +11,9 @@ class LocationHelperBuilder constructor(
         val code = GoogleApiAvailability.getInstance()
             .isGooglePlayServicesAvailable(context.applicationContext)
         return if (code != ConnectionResult.SUCCESS) {
-            LocationHelperGms(context)
-        } else {
             LocationHelperHms(context)
+        } else {
+            LocationHelperGms(context)
         }
     }
 }

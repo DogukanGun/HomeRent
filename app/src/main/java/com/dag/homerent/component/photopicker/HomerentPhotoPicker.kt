@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import com.dag.homerent.R
@@ -47,6 +48,7 @@ class HomerentPhotoPicker : ConstraintLayout {
             this,
             true
         )
+        binding.imageView.scaleType = ImageView.ScaleType.FIT_XY
         binding.imageView.setOnClickListener(imageClickListener)
     }
 

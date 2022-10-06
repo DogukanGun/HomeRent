@@ -11,5 +11,7 @@ enum class AddHomeModelKeys(val key: String) {
     AutoPay("autoPay"),
     ElectricityBill("electricityBill"),
     Facilities("facility"),
-    Properties("property")
+    Properties("property"),
+    HomeName("homeName"),
+    HomePhoto("homePhoto")
 }

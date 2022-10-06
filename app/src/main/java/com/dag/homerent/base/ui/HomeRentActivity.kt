@@ -56,7 +56,7 @@ abstract class HomeRentActivity<VM : HomeRentViewModel, VB : ViewDataBinding> :
         }
     }
 
-    private fun handleLoadingState(isLoading: Boolean) {
+    fun handleLoadingState(isLoading: Boolean) {
         if (isLoading) {
             homerentProcessDialogManager.showLoadingDialog(this)
         } else {

@@ -31,7 +31,7 @@ fun createRepeatableDialog(
 fun createGenericDialog(
     titleRes: Int = R.string.app_name,
     messageRes: Int = com.airbnb.lottie.R.string.search_menu_title,
-    positiveButton: ModelDialogButton = ModelDialogButton(textRes = R.string.app_name),
+    positiveButton: ModelDialogButton = ModelDialogButton(textRes = R.string.dialog_positive_button),
     negativeButton: ModelDialogButton? = null,
     isCancelable: Boolean = false,
     dialogPrimaryColor: HomerentDialogBox.DialogPrimaryColor = HomerentDialogBox.DialogPrimaryColor.Red

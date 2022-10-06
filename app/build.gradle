@@ -154,11 +154,12 @@ dependencies {
 
 //Huawei
     implementation 'com.huawei.agconnect:agconnect-core:1.5.0.300'
-    implementation 'com.huawei.hms:push:5.0.4.302'
     implementation 'com.huawei.hms:location:5.0.4.300'
     implementation "com.huawei.hms:scan:1.2.1.300"
-    implementation 'com.huawei.hms:hianalytics:5.1.0.300'
     implementation "com.huawei.agconnect:agconnect-crash:1.4.2.301"
-    implementation "com.huawei.hms:ads-identifier:3.4.28.313"
     implementation "com.huawei.hms:hwid:4.0.1.300"
+
+    //Coil
+    implementation("io.coil-kt:coil:2.2.2")
+
 }

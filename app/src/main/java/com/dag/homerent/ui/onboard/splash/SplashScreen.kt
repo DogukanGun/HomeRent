@@ -27,11 +27,16 @@ fun SplashScreen(
     LaunchedEffect(Unit) {
         viewModel.readWelcomeState()
     }
-    if (splashStatus.welcomeScreenResult.value == WelcomeScreenResult.NotFirstTime) {
-        navController.navigate(NavScreen.PhoneScreen.route)
-    } else if (splashStatus.welcomeScreenResult.value == WelcomeScreenResult.FirstTime) {
-        navController.navigate(NavScreen.WelcomeScreen.route)
+    if (!splashStatus.welcomeScreenDone.value) {
+        if (splashStatus.welcomeScreenResult.value == WelcomeScreenResult.NotFirstTime) {
+            navController.navigate(NavScreen.PhoneScreen.route)
+            splashStatus.welcomeScreenDone.value = true
+        } else if (splashStatus.welcomeScreenResult.value == WelcomeScreenResult.FirstTime) {
+            navController.navigate(NavScreen.WelcomeScreen.route)
+            splashStatus.welcomeScreenDone.value = true
+        }
     }
+
     OnboardSurface {
         Box(
             modifier = Modifier

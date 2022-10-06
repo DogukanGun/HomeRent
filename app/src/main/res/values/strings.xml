@@ -32,6 +32,14 @@
     <string name="network_error_message_text">Please try again.</string>
     <string name="repeatable_dialog_error_message">Let\'s try again.</string>
 
-    <string name="component_homerent_locationpicker">Your location:</string>
+    <string name="component_homerent_locationpicker">Save Location</string>
+
+    <string name="location_error_dialog_title">Oppss</string>
+    <string name="location_error_dialog_text">To get your home\'s coordinate you should give the permission </string>
+    <string name="location_error_dialog_positive_button">Okay</string>
+
+
+    <string name="dialog_positive_button">Okay</string>
+
 
 </resources>

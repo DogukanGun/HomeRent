@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/locationKeyTV"
+            style="@style/HomeRentTitle.Black.XLarge.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_small"
             android:text="@string/component_homerent_locationpicker"
-            style="@style/HomeRentTitle.Black.XLarge.Bold"
-            android:padding="@dimen/padding_small"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/locationValueTV"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:padding="@dimen/padding_small"
-            style="@style/HomeRentTitle.Black.XLarge.Bold"
-            app:layout_constraintStart_toEndOf="@id/locationKeyTV"
-            app:layout_constraintEnd_toEndOf="@id/findMeBTN"
-            tools:text="Ankara Hava Alanı" />
-
-        <ImageButton
-            android:id="@+id/findMeBTN"
-            android:src="@drawable/ic_baseline_location"
-            android:background="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/findMeBTN"
+            style="@style/CheckableThumbColor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:padding="@dimen/padding_small"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

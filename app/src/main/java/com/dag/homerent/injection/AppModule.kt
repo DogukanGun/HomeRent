@@ -14,4 +14,5 @@ object AppModule {
     @Provides
     @Singleton
     fun provideSessionManager() = HomerentSessionManager()
+
 }

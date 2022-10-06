@@ -4,6 +4,7 @@ import com.dag.homerent.network.commonresponse.TextField
 import com.dag.homerent.ui.home.add.data.AddHomeModel
 import com.dag.homerent.ui.home.add.data.AddHomeModelKeys
 import com.dag.homerent.ui.home.add.data.CreateFacilityRequests
+import com.dag.homerent.ui.home.add.data.HomeCoordinate
 import javax.inject.Inject
 
 class AddHomeWatcher @Inject constructor() {
@@ -26,6 +27,10 @@ class AddHomeWatcher @Inject constructor() {
                 landlordAccount.accountNumber = text
             } else if (textField.key == AddHomeModelKeys.Bedroom.key) {
                 addHomeRequestModel.bedroomCount = text.toInt()
+            } else if (textField.key == AddHomeModelKeys.HomeName.key) {
+                addHomeRequestModel.homeName = text
+            } else if (textField.key == AddHomeModelKeys.HomePhoto.key) {
+                addHomeRequestModel.homePhoto = text
             }
         }
     }
@@ -50,5 +55,9 @@ class AddHomeWatcher @Inject constructor() {
                 propertyType = listObject
             }
         }
+    }
+
+    fun observeLocation(homeCoordinate: HomeCoordinate) {
+        addHomeRequestModel.homeCoordinate = homeCoordinate
     }
 }

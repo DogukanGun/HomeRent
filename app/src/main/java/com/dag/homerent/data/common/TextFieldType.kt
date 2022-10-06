@@ -5,5 +5,6 @@ enum class TextFieldType {
     Switch,
     Text,
     List,
-    Image
+    Image,
+    Location
 }
